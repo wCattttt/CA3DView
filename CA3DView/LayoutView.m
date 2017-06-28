@@ -12,24 +12,8 @@ static CGFloat ActiveDistance = 400;
 static CGFloat ScaleFactor = 0.5;
 
 @implementation LayoutView
+// 返回存放在CGRect范围内所有视图的布局属性的一个数组
 - (nullable NSArray<__kindof UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect {
-    /*
-     let array = super.layoutAttributesForElements(in: rect)
-     var visibleRect = CGRect()
-     visibleRect.origin = self.collectionView!.contentOffset
-     visibleRect.size = self.collectionView!.bounds.size
-     
-     for attributes in array!{
-     let distance = visibleRect.midX - attributes.center.x
-     let normalizedDistance = abs(distance/ActiveDistance)
-     let zoom = 1 - ScaleFactor * normalizedDistance
-     attributes.transform3D = CATransform3DMakeScale(1.0, zoom, 1.0)
-     attributes.zIndex = 1
-     //            let alpha = 1 - normalizedDistance
-     //            attributes.alpha = alpha
-     }
-     return array
-     */
     
     NSArray *attArray = [super layoutAttributesForElementsInRect:rect];
     CGRect visRect;

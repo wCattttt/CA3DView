@@ -75,7 +75,7 @@ static CGFloat itemHight = 190;
 }
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     NSInteger scrIndex = scrollView.contentOffset.x/(itemWidth + 10);
-    
+    // 当停止拖拽时，view不在滑动时才执行，还在滑动则调用scrollViewDidEndDecelerating
     if(!decelerate){
         [self scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:scrIndex + 1 inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
         _curIndex = scrIndex + 1;
